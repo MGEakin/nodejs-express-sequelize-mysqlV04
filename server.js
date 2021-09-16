@@ -21,9 +21,15 @@ app.get("/", (req, res) => {
 });
 
 // set port, listen for requests
-require("./app/routes/tutorial.routes")(app);
+require("./app/routes/assignment.routes")(app);
 require("./app/routes/client.routes")(app);
+require("./app/routes/opening.routes")(app);
+require("./app/routes/practice.routes")(app);
+require("./app/routes/region.routes")(app);
+require("./app/routes/role.routes")(app);
 require("./app/routes/status.routes")(app);
+require("./app/routes/tutorial.routes")(app);
+require("./app/routes/user.routes")(app);
 // require("./app/routes/tutorial.routes")(app);
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
