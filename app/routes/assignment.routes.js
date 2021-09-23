@@ -1,3 +1,4 @@
+const assignments = require("../controllers/assignment.controller.js");
 module.exports = app => {
     const assignments = require("../controllers/assignment.controller.js");
 
@@ -8,6 +9,9 @@ module.exports = app => {
 
     // Retrieve all assignments
     router.get("/", assignments.findAll);
+
+    // Retrieve all assignments by client
+    // router.get("/clientId/:clientId", assignments.findByClient);
 
     // Retrieve a single assignment with id
     router.get("/:id", assignments.findOne);

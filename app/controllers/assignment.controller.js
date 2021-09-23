@@ -32,8 +32,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Assignments from the database.
 exports.findAll = (req, res) => {
-    const title = req.query.title;
-    let condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+    const clientId = req.query.clientId;
+    let condition = clientId ? { clientId: { [Op.eq]: `${clientId}` } } : null;
 
     Assignment.findAll({ where: condition })
         .then(data => {
@@ -58,6 +58,21 @@ exports.findOne = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message: "Error retrieving Assignment with id=" + id
+            });
+        });
+};
+
+// Find a single Assignment with an id
+exports.findByClient = (req, res) => {
+    const id = req.params.clientId;
+
+    Assignment.findAll({ where: { clientId: id } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving Assignment with clientId=" + id
             });
         });
 };
