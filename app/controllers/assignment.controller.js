@@ -66,7 +66,7 @@ exports.findOne = (req, res) => {
 exports.findByClient = (req, res) => {
     const id = req.params.clientId;
 
-    Assignment.findAll({ where: { clientId: id } })
+    Assignment.query("SELECT * FROM assignments where clientId=${id}")
         .then(data => {
             res.send(data);
         })

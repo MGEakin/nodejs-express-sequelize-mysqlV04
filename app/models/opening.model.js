@@ -6,17 +6,14 @@ module.exports = (sequelize, Sequelize) => {
         startDate: {
             type: Sequelize.DATE
         },
-        endDate: {
-            type: Sequelize.DATE
-        },
         rate: {
             type: Sequelize.INTEGER
         },
-        clientId: {
-            type: Sequelize.INTEGER
+        client: {
+            type: Sequelize.STRING
         },
-        roleId: {
-            type: Sequelize.INTEGER
+        role: {
+            type: Sequelize.STRING
         }
     });
 

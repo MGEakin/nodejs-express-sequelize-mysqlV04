@@ -11,8 +11,15 @@ module.exports = app => {
     router.get("/", assignments.findAll);
 
     // Retrieve all assignments by client
-    // router.get("/clientId/:clientId", assignments.findByClient);
-
+    router.get("/assignments/clientId/:clientId", assignments.findByClient);
+    // router.get("/clientId/:clientId", async (req, res, next) => {
+    //     try {
+    //         const data = await assignments.query();
+    //         res.json(data.rows);
+    //     } catch (err) {
+    //         return next(err);
+    //     }
+    // });
     // Retrieve a single assignment with id
     router.get("/:id", assignments.findOne);
 

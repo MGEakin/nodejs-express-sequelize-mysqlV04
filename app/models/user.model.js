@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         practice: {
             type: Sequelize.INTEGER
+        },
+        region: {
+            type: Sequelize.INTEGER
         }
     });
 
