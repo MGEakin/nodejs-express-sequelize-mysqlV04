@@ -11,9 +11,6 @@ module.exports = (sequelize, Sequelize) => {
         },
         client: {
             type: Sequelize.STRING
-        },
-        role: {
-            type: Sequelize.STRING
         }
     });
 
