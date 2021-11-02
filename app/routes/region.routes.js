@@ -1,25 +1,25 @@
 module.exports = app => {
     const regions = require("../controllers/region.controller.js");
 
-    var router = require("express").Router();
+    var regionRouter = require("express").Router();
 
     // Create a new region
-    router.post("/", regions.create);
+    regionRouter.post("/", regions.create);
 
     // Retrieve all regions
-    router.get("/", regions.findAll);
+    regionRouter.get("/", regions.findAll);
 
     // Retrieve a single region with id
-    router.get("/:id", regions.findOne);
+    regionRouter.get("/:id", regions.findOne);
 
     // Update a region with id
-    router.put("/:id", regions.update);
+    regionRouter.put("/:id", regions.update);
 
     // Delete a region with id
-    router.delete("/:id", regions.delete);
+    regionRouter.delete("/:id", regions.delete);
 
     // Delete all regions
-    router.delete("/", regions.deleteAll);
+    regionRouter.delete("/", regions.deleteAll);
 
-    app.use('/api/regions', router);
+    app.use('/api/regions', regionRouter);
 };

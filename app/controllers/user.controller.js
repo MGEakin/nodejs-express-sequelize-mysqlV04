@@ -4,17 +4,44 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new User
 exports.create = (req, res) => {
+    console.log('req.body:', req.body);
+    // const resParsed = JSON.parse(req.body)
+    // console.log(resParsed.firstName);
+    // console.log(resParsed.lastName);
+    // console.log(resParsed.email);
+    // console.log(resParsed.phone);
+    // const firstName = req.body.firstName;
+    // const lastName = req.body.lastName;
+    // const email = req.body.email;
+    // const phone = req.body.phone;
+    // console.log('req.body.firstName:', req.body.firstName);
+    // console.log('req.body.lastName:', req.body.lastName);
+    // console.log('req.body.email:', req.body.email);
+    // console.log('req.body.phone:', req.body.phone);
+
     // Validate request
-    if (!req.body.firstName) {
+    if (!req.body.email) {
         res.status(400).send({
-            message: `Content ${JSON.stringify(req.body)} cannot be empty!`
+            message: `users Content ${JSON.stringify(req.body.email)} cannot be empty!`
         });
         return;
     }
+    // res.send({
+    //     'firstName': firstName,
+    //     'lastName': lastName,
+    //     'email': email,
+    //     'phone': phone
+    // });
 
     // Create a User
     const user = {
-        firstName: req.body.firstName
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        phone: req.body.phone,
+        role: req.body.role,
+        practice: req.body.practice,
+        region: req.body.region
     };
 
     // Save User in the database
